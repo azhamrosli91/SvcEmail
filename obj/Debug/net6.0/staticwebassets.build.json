@@ -1,0 +1,71 @@
+{
+  "Version": 1,
+  "Hash": "KckIFWAWdQOGPWzv5klsHpTPeoNIdqP+nt43FcBBFPE=",
+  "Source": "SvcEmail",
+  "BasePath": "_content/SvcEmail",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "SvcEmail\\wwwroot",
+      "Source": "SvcEmail",
+      "ContentRoot": "D:\\Code\\SvcEmail\\SvcEmail\\wwwroot\\",
+      "BasePath": "_content/SvcEmail",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "D:\\Code\\SvcEmail\\SvcEmail\\wwwroot\\Templates\\InviteFriend.html",
+      "SourceId": "SvcEmail",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Code\\SvcEmail\\SvcEmail\\wwwroot\\",
+      "BasePath": "_content/SvcEmail",
+      "RelativePath": "Templates/InviteFriend.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Templates\\InviteFriend.html"
+    },
+    {
+      "Identity": "D:\\Code\\SvcEmail\\SvcEmail\\wwwroot\\Templates\\ResetPassword.html",
+      "SourceId": "SvcEmail",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Code\\SvcEmail\\SvcEmail\\wwwroot\\",
+      "BasePath": "_content/SvcEmail",
+      "RelativePath": "Templates/ResetPassword.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Templates\\ResetPassword.html"
+    },
+    {
+      "Identity": "D:\\Code\\SvcEmail\\SvcEmail\\wwwroot\\Templates\\VerifyAccount.html",
+      "SourceId": "SvcEmail",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Code\\SvcEmail\\SvcEmail\\wwwroot\\",
+      "BasePath": "_content/SvcEmail",
+      "RelativePath": "Templates/VerifyAccount.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Templates\\VerifyAccount.html"
+    }
+  ]
+}

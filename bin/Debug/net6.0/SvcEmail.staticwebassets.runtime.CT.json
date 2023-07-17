@@ -1,0 +1,47 @@
+{
+  "ContentRoots": [
+    "/src/SvcEmail/wwwroot/"
+  ],
+  "Root": {
+    "Children": {
+      "Templates": {
+        "Children": {
+          "InviteFriend.html": {
+            "Children": null,
+            "Asset": {
+              "ContentRootIndex": 0,
+              "SubPath": "Templates/InviteFriend.html"
+            },
+            "Patterns": null
+          },
+          "ResetPassword.html": {
+            "Children": null,
+            "Asset": {
+              "ContentRootIndex": 0,
+              "SubPath": "Templates/ResetPassword.html"
+            },
+            "Patterns": null
+          },
+          "VerifyAccount.html": {
+            "Children": null,
+            "Asset": {
+              "ContentRootIndex": 0,
+              "SubPath": "Templates/VerifyAccount.html"
+            },
+            "Patterns": null
+          }
+        },
+        "Asset": null,
+        "Patterns": null
+      }
+    },
+    "Asset": null,
+    "Patterns": [
+      {
+        "ContentRootIndex": 0,
+        "Pattern": "**",
+        "Depth": 0
+      }
+    ]
+  }
+}
