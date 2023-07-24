@@ -2,6 +2,7 @@
 using SendGrid;
 using SvcEmail.Interface;
 using SvcEmail.Models;
+using libMasterLibaryApi.Helpers;
 
 namespace SvcEmail.Repository
 {
@@ -21,7 +22,7 @@ namespace SvcEmail.Repository
 
         public async Task<T> sentEmailAsync<T>(Email Email)
         {
-            var apiKey = _configuration["SentGridApiKey:key"];
+            var apiKey = EncryptDecrypt.Decrypt(_configuration["SentGridApiKey:key"]);
             var client = new SendGridClient(apiKey);
             var from = new EmailAddress(Email.SenderDetails.Email, Email.SenderDetails.Name);
             var subject = Email.Subject;

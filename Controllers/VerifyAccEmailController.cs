@@ -1,3 +1,4 @@
+using libMasterLibaryApi.Helpers;
 using libMasterLibaryApi.Interface;
 using Microsoft.AspNetCore.Mvc;
 using SendGrid;
@@ -30,10 +31,9 @@ namespace SvcEmail.Controllers
             _jwtToken = jwtToken;
         }
 
-        [HttpGet(Name = "SentEmail")]
-        public async Task<IActionResult> Get([FromBody] EmailValidate value)
-        {
-
+        [HttpGet]
+        public async Task<IActionResult> Get()
+        {      
             return Ok();
         }
         [HttpPost]
