@@ -1,5 +1,7 @@
 using libMasterLibaryApi.Helpers;
 using libMasterLibaryApi.Interface;
+using libMasterLibaryApi.Models;
+using libMasterObject;
 using Microsoft.AspNetCore.Mvc;
 using SendGrid;
 using SvcEmail.Interface;
@@ -19,16 +21,21 @@ namespace SvcEmail.Controllers
         private readonly IConfiguration _configuration;
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly IJwtToken _jwtToken;
+        private readonly IDbService _dbService;
+        private readonly IApiURL _apiURL;
 
 
         public VerifyAccEmailController(ILogger<VerifyAccEmailController> logger, IConfiguration configuration, IEmail email
-                                    , IWebHostEnvironment webHostEnvironment, IJwtToken jwtToken)
+                                    ,IWebHostEnvironment webHostEnvironment, IJwtToken jwtToken, 
+                                    IDbService dbService, IApiURL apiURL)
         {
             _logger = logger;
             _configuration = configuration;
             _email = email;
             _webHostEnvironment = webHostEnvironment;
             _jwtToken = jwtToken;
+            _dbService = dbService;
+            _apiURL = apiURL;
         }
 
         [HttpGet]
@@ -44,8 +51,8 @@ namespace SvcEmail.Controllers
             model.SenderDetails = new EmailData { Email = _configuration["EmailSetting:emailFrom"], Name = _configuration["EmailSetting:nameFrom"] };
             model.EmailTo = new EmailData { Email = value.UserEmail, Name = value.Name };
             model.Subject = "[Epsilon Sigma] Please Verify Your Epsilon Sigma";
-
-            string urlNavigate = _configuration["RootURL:VerifyAccount"];
+     
+            string urlNavigate = await _apiURL.GetApiURL("VerifyAccount");
             string jsonFormatter = JsonSerializer.Serialize<EmailValidate>(value);
             Claim[] claims = new[]
             {

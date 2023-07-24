@@ -19,6 +19,7 @@ builder.Services.AddScoped<IJwtToken, JWTToken>();
 builder.Services.AddScoped<IWebApiCalling, WebApiCalling>();
 builder.Services.AddScoped<IImageConvert, ImageConverter>();
 builder.Services.AddScoped<IDbService, DBContext>();
+builder.Services.AddScoped<IApiURL, ApiURLRepo>();
 //libary Master Api required -- end
 builder.Services.AddScoped<IEmail, EmailSendGridRepo>();
 

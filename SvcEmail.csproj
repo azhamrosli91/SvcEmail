@@ -15,6 +15,7 @@
     <PackageReference Include="Microsoft.Extensions.Http" Version="7.0.0" />
     <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
     <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="Npgsql" Version="7.0.4" />
     <PackageReference Include="SendGrid" Version="9.28.1" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
     <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.32.0" />
@@ -23,6 +24,9 @@
   <ItemGroup>
     <Reference Include="libMasterLibaryApi">
       <HintPath>..\..\LibaryMasterApi\LibaryMasterApi\libMasterLibaryApi\libMasterLibaryApi\bin\Debug\net6.0\libMasterLibaryApi.dll</HintPath>
+    </Reference>
+    <Reference Include="libMasterObject">
+      <HintPath>..\..\libMasterObject\libMasterObject\bin\Debug\net6.0\libMasterObject.dll</HintPath>
     </Reference>
   </ItemGroup>
 

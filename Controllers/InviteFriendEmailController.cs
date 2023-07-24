@@ -1,4 +1,5 @@
 using libMasterLibaryApi.Interface;
+using libMasterObject;
 using Microsoft.AspNetCore.Mvc;
 using SendGrid;
 using SvcEmail.Interface;
@@ -18,16 +19,17 @@ namespace SvcEmail.Controllers
         private readonly IConfiguration _configuration;
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly IJwtToken _jwtToken;
-
+        private readonly IApiURL _apiURL;
 
         public InviteFriendEmailController(ILogger<VerifyAccEmailController> logger, IConfiguration configuration, IEmail email
-                                    , IWebHostEnvironment webHostEnvironment, IJwtToken jwtToken)
+                                    , IWebHostEnvironment webHostEnvironment, IJwtToken jwtToken, IApiURL apiURL)
         {
             _logger = logger;
             _configuration = configuration;
             _email = email;
             _webHostEnvironment = webHostEnvironment;
             _jwtToken = jwtToken;
+            _apiURL = apiURL;
         }
 
         [HttpGet(Name = "InviteFriendEmail")]
@@ -45,7 +47,7 @@ namespace SvcEmail.Controllers
             model.EmailTo = new EmailData { Email = value.UserEmail, Name = value.Name };
             model.Subject = "[Epsilon Sigma] " + value.InvitationName + " is waiting for you to join them";
 
-            string urlNavigate = _configuration["RootURL:InviteFriend"];
+            string urlNavigate = await _apiURL.GetApiURL("InviteFriend");
             string jsonFormatter = JsonSerializer.Serialize<EmailInvitationFriend>(value);
             Claim[] claims = new[]
             {

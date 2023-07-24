@@ -10,6 +10,7 @@ using System.Security.Claims;
 using System.Text.Json;
 using System.Xml.Linq;
 using SvcEmail.Interface;
+using libMasterObject;
 
 namespace SvcEmail.Controllers
 {
@@ -22,16 +23,17 @@ namespace SvcEmail.Controllers
         private readonly IConfiguration _configuration;
         private readonly IWebHostEnvironment _webHostEnvironment;
         private readonly IJwtToken _jwtToken;
-
+        private readonly IApiURL _apiURL;
 
         public ResetPasswordEmailController(ILogger<ResetPasswordEmailController> logger, IConfiguration configuration, IEmail email
-                                    , IWebHostEnvironment webHostEnvironment, IJwtToken jwtToken)
+                                    , IWebHostEnvironment webHostEnvironment, IJwtToken jwtToken, IApiURL apiURL)
         {
             _logger = logger;
             _configuration = configuration;
             _webHostEnvironment = webHostEnvironment;
             _jwtToken = jwtToken;
             _email = email;
+            _apiURL = apiURL;
         }
 
         [HttpGet(Name = "ResetPasswordEmail")]
@@ -48,14 +50,14 @@ namespace SvcEmail.Controllers
             model.EmailTo = new EmailData { Email = value.UserEmail, Name = value.Name };
             model.Subject = "[Epsilon Sigma] Change password for Epsilon Sigma";
 
-            string urlNavigate = _configuration["RootURL:ResetPassword"];
+            string urlNavigate = await _apiURL.GetApiURL("ResetPassword");
             string jsonFormatter = JsonSerializer.Serialize<EmailValidate>(value);
             Claim[] claims = new[]
             {
                 new Claim("token", jsonFormatter)
             };
 
-            string token = _jwtToken.GenerateJWTToken(claims, 1);
+            string token = _jwtToken.GenerateJWTTokenLogin(claims, 120);
 
             urlNavigate += "?token=" + token;
 
